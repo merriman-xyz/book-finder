@@ -24,7 +24,7 @@ const Book = ({book}) => {
     const published_date = book.volumeInfo?.publishedDate
 
     return <tr key={book_ISBN_13} className='books-table--book-row'>
-        <td><img className='books-table--book-row--thumbnail' src={thumbnail_src} alt=""/></td>
+        {/*<td><img className='books-table--book-row--thumbnail' src={thumbnail_src} alt=""/></td>*/}
         <td className='books-table--book-row--title'>{book.volumeInfo.title}</td>
         {published_date && <td className='books-table--book-row--published-date'>{published_date}</td>}
         <td className='books-table--book-row--author'>{book.volumeInfo?.authors?.map(author =>
