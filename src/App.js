@@ -18,7 +18,7 @@ const Book = ({book}) => {
     }
 
     const book_ISBN_13 = book_ISBN_13_obj.identifier
-    const thumbnail_src = book.volumeInfo?.imageLinks?.thumbnail
+    // const thumbnail_src = book.volumeInfo?.imageLinks?.thumbnail
     const goodreads_href = `https://www.goodreads.com/book/isbn/${book_ISBN_13}`
     const bookfinder_href = `https://www.bookfinder.com/search/?isbn=${book_ISBN_13}&st=xl&ac=qr`
     const published_date = book.volumeInfo?.publishedDate
