@@ -64,7 +64,7 @@ function App() {
     }, [debouncedBookQuery])
 
     // eslint-disable-next-line
-    const updateDebouncedBookQuery = useCallback(debounce((bookQuery) => { setDebouncedBookQuery(bookQuery) }, 150), [])
+    const updateDebouncedBookQuery = useCallback(debounce((bookQuery) => { setDebouncedBookQuery(bookQuery) }, 300), [])
 
     const updateBookQuery = (event) => {
         event.preventDefault()
