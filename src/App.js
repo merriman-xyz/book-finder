@@ -49,13 +49,13 @@ function App() {
     const [loading, setLoading] = useState(null)
 
     useEffect(() => {
-        switch (bookQuery.trim()) {
+        switch (debouncedBookQuery.trim()) {
             case '':
                 setResults([]);
                 setLoading(null)
                 break;
             default:
-                queryOpenLibraryAPI(bookQuery).then(books => {
+                queryOpenLibraryAPI(debouncedBookQuery).then(books => {
                         setLoading(null)
                         if (books) setResults(books.slice(0, 20))
                     }
@@ -63,15 +63,14 @@ function App() {
         }
     }, [debouncedBookQuery])
 
-    const debounced = useCallback(debounce((bookQuery) => {
-        setDebouncedBookQuery(bookQuery)
-    }, 300), [])
+    // eslint-disable-next-line
+    const updateDebouncedBookQuery = useCallback(debounce((bookQuery) => { setDebouncedBookQuery(bookQuery) }, 300), [])
 
     const updateBookQuery = (event) => {
         event.preventDefault()
         setLoading(true)
         setBookQuery(event.target.value)
-        debounced(event.target.value)
+        updateDebouncedBookQuery(event.target.value)
     }
 
     const setBody = () => {
