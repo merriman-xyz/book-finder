@@ -1,13 +1,111 @@
-body {
-  margin: 0;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* === App ===  */
+.App {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 4rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* === BOOK QUERY INPUT ===*/
+.book-query-input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  flex-wrap: nowrap;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.book-query-input > input {
+  width: 12rem;
+  display: block;
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.book-query-input--title{
+  font-size: 1.1rem;
+}
+
+.book-query-input--description{
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* === BOOKS RESULT TABLE ===*/
+.books-table {
+  padding: 0.66rem;
+  display: flex;
+  width: 100%;
+}
+
+.books-table--body {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.books-table--book-row {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.books-table--book-row--thumbnail{
+  width: 10rem;
+  display: none;
+}
+.books-table--book-row--title{
+  max-width: 15rem;
+  font-weight: bold;
+}
+.books-table--book-row--author {
+  font-size: 0.88rem;
+}
+
+.books-table--book-row--link {
+  font-size: 0.88rem;
+}
+
+.books-table--book-row--link::after {
+  content: '↗'
+}
+
+/* === MEDIA QUERY - FOR TABLETS/LAPTOP/DESKTOP SCREENS === */
+@media (min-width: 600px) {
+  .books-table{
+    display: table;
+    width: max-content;
+  }
+
+  .books-table--body{
+    display: block;
+    width: max-content;
+  }
+
+  .books-table--book-row{
+    display: table-row;
+    vertical-align: center;
+  }
 }
